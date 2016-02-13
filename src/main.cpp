@@ -20,8 +20,20 @@ float h;
 #define DHTPIN 2
 #define DHTTYPE DHT11
 
+void setupTempSensor(void);
+void readTemp(void);
+void postValues(void);
+String convertFloatToString(float n);
+
 WiFiClient client;
 DHT dht(DHTPIN, DHTTYPE);
+
+int main() {
+  setup();
+  for(;;) {
+    loop();
+  }
+}
 
 void setup() {
   Serial.begin(115200);
